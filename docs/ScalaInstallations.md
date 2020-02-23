@@ -1,5 +1,13 @@
 # Scala Installations
 
+- [Scala Installations](#scala-installations)
+  - [Windows](#windows)
+    - [Java](#java)
+    - [SBT](#sbt)
+    - [Scala](#scala)
+    - [Ammonite REPL](#ammonite-repl)
+  - [MacOS](#macos)
+
 ## Windows
 
 For Windows Scoop is doing good job as a command-line installer, and can manage pretty well the installation of Java/Scala/sbt/Ammonite
