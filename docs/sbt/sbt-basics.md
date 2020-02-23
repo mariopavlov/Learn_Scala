@@ -2,8 +2,68 @@
 
 Scala sbt is a build tool for Scala written in Scala, but can build Java files as well.
 
-Build definition and source code connected with this documentation:
-[sbt basics](../src/sbt/basics/build.sbt)
+[Source files used](https://github.com/mariopavlov/Learn_Scala/tree/master/src/sbt/basics):
+
+<!-- tabs:start -->
+
+#### ** build.sbt **
+
+```scala
+name := "Animals"
+
+organization := "farm"
+
+version := "1.0.0"
+
+scalaVersion := "2.12.3"
+```
+
+#### ** Run.scala **
+
+```scala
+package animals
+
+object Run extends App {
+
+  println("I'm running really well!" + (new Cat).speak + " " + (new Dog).speak)
+}
+
+```
+
+#### ** Animal.scala **
+
+```scala
+package animals
+
+trait Animal {
+  def speak: String
+}
+
+```
+
+#### ** Cat.scala **
+
+```scala
+package animals
+
+class Cat extends Animal {
+  def speak = "meow"
+}
+
+```
+
+#### ** Dog.scala **
+
+```scala
+package animals
+
+class Dog extends Animal {
+  def speak = "woof"
+}
+
+```
+
+<!-- tabs:end -->
 
 ## Compiler Bridge Package
 
