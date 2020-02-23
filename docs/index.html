@@ -59,7 +59,16 @@
       ga: 'UA-158940234-2',
 
       // Disqus
-      disqus: 'scala-learning'
+      disqus: 'scala-learning',
+
+      // Tabs
+      tabs: {
+        persist: true,      // default
+        sync: true,      // default
+        theme: 'material',
+        tabComments: true,      // default
+        tabHeadings: true       // default
+      }
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
@@ -73,9 +82,12 @@
   <script src="//unpkg.com/docsify/lib/plugins/disqus.min.js"></script>
   <!-- Prism Language Highlighting -->
   <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-pascal.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-scala.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-powershell.min.js"></script>
-
+  <!-- Docsify-Tabs Plugin-->
+  <!-- docsify-tabs (latest v1.x.x) -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
 </body>
 
 </html>
