@@ -20,31 +20,39 @@ scoop bucket add java
 
 Then we need to install Java. Scoop supports `Oracle OpenJDK`, `Zulu JDK` and others.
 
-- Oracle OpenJDK
+<!-- tabs:start -->
+
+#### ** Oracle OpenJDK **
 
 ```powershell
 scoop install openjdk
 ```
 
-- Zulu JDK
+#### ** Zulu JDK **
 
 ```powershell
 scoop install zulu6
 ```
 
+<!-- tabs:end -->
+
 If we have multiple Java installations we can switch between versions with `reset` command. For example:
 
-- Change version to Oracle OpenJDK:
+<!-- tabs:start -->
+
+#### ** Oracle OpenJDK **
 
 ```powershell
 scoop reset oraclejdk
 ```
 
-- Change version to Zulu:
+#### ** Zulu JDK **
 
 ```powershell
 scoop reset zulu6
 ```
+
+<!-- tabs:end -->
 
 ### SBT
 
