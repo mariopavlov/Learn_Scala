@@ -1,2 +1,29 @@
+### SBT ###
+# Simple Build Tool
+# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
+
+target/
+
+# Project folder should be commit
+# it contains information like
+# build.properties
+# plugins.sbt
+project/target
+
+## Github Default ignore
 *.class
 *.log
+
+## Some IntelliJ Idea excludes
+.idea/.name
+.idea/libraries/
+.idea/modules/
+.idea/modules.xml
+.idea/scala_compiler.xml
+.idea/tasks.xml
+.idea/workspace.xml
+.idea_modules/
+
+## Mac OS 
+.DS_Store
+
