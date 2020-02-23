@@ -11,4 +11,4 @@
 
 - **Links**
 - [![GitHub](https://mariopavlov.github.io/Learn_Scala/img/github-mark/GitHub-Mark-Light-32px.png)GitHub](https://github.com/mariopavlov/Learn_Scala)
-- [![GitHub](img/profile_small.jpg)Resume](http://mariopavlov.com/)
+- [![GitHub](https://mariopavlov.github.io/Learn_Scala/img/profile_small.jpg)Resume](http://mariopavlov.com/)
