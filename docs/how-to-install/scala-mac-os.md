@@ -4,7 +4,7 @@ On MacOS I prefer to use SDKMAN, to manage all java sdk versions.
 
 ## Java
 
-As on Windows here we also have choice between multiple Java versions.
+Then we need to install Java. SDKMAN supports `Oracle OpenJDK`, `Zulu JDK` and others.
 
 <!-- tabs:start -->
 
@@ -65,3 +65,13 @@ And finally we can install Ammonite-REPL. I have used brew to install it.
 ```zsh
 brew install ammonite-repl
 ```
+
+## Resources
+
+* [SDKMAN](https://sdkman.io/jdks)
+
+* [sbt](https://www.scala-sbt.org/1.x/docs/Installing-sbt-on-Mac.html)
+
+* [Ammonite-REPL](https://ammonite.io/)
+
+* [Scala](https://scala-lang.org/download/)

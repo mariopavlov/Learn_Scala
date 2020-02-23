@@ -77,3 +77,13 @@ Ammonite lets you use the Scala language for scripting purposes: in the REPL, as
 ```powershell
 scoop install ammonite
 ```
+
+## Resources
+
+* [Scoop](https://scoop.sh/)
+
+* [sbt](https://www.scala-sbt.org/1.x/docs/Installing-sbt-on-Mac.html)
+
+* [Ammonite-REPL](https://ammonite.io/)
+
+* [Scala](https://scala-lang.org/download/)
