@@ -3,7 +3,11 @@
 - **Getting started**
 
   - [Home](/)
-  - [How to install Scala](scala-installations.md)
+  
+- **How to install Scala**
+
+  - [on Windows](how-to-install/scala-windows.md)
+  - [on MacOS](how-to-install/scala-mac-os.md)
 
 - **Simple Build Tool (sbt)**
 

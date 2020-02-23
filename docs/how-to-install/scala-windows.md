@@ -1,10 +1,8 @@
-# How to install Scala
-
-## Windows
+# How to install Scala on Windows
 
 For Windows Scoop is doing good job as a command-line installer, and can manage pretty well the installation of Java/Scala/sbt/Ammonite
 
-### Java
+## Java
 
 As a prerequisite we need GIT.
 
@@ -54,7 +52,7 @@ scoop reset zulu6
 
 <!-- tabs:end -->
 
-### SBT
+## SBT
 
 sbt is a build tool for Scala, Java, and more. It requires Java 1.8 or later.
 
@@ -64,13 +62,13 @@ sbt is a build tool for Scala, Java, and more. It requires Java 1.8 or later.
 scoop install sbt
 ```
 
-### Scala
+## Scala
 
 ```powershell
 scoop install scala
 ```
 
-### Ammonite REPL
+## Ammonite REPL
 
 Ammonite lets you use the Scala language for scripting purposes: in the REPL, as scripts, as a library to use in existing projects, or as a standalone systems shell.
 
@@ -79,5 +77,3 @@ Ammonite lets you use the Scala language for scripting purposes: in the REPL, as
 ```powershell
 scoop install ammonite
 ```
-
-## MacOS
