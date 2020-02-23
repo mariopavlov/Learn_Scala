@@ -10,4 +10,4 @@
   - [sbt Basics](sbt/sbt-basics.md)
 
 - **Links**
-- [![GitHub](https://github.com/mariopavlov/Learn_Scala/docs/img/github-mark/GitHub-Mark-Light-32px.png)GitHub](https://github.com/mariopavlov/Learn_Scala)
+- [![GitHub](https://mariopavlov.github.io/Learn_Scala/img/github-mark/GitHub-Mark-Light-32px.png)GitHub](https://github.com/mariopavlov/Learn_Scala)
