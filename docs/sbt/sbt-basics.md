@@ -1,22 +1,5 @@
 # SBT Basics
 
-- [SBT Basics](#sbt-basics)
-  - [Compiler Bridge Package](#compiler-bridge-package)
-  - [Build definition](#build-definition)
-  - [Commands](#commands)
-    - [Compile](#compile)
-    - [Run](#run)
-    - [runMain](#runmain)
-    - [Reload](#reload)
-    - [Inspect build environment](#inspect-build-environment)
-  - [Build directories](#build-directories)
-    - [project](#project)
-    - [target](#target)
-  - [sbt Project organizations](#sbt-project-organizations)
-    - [3-layer system](#3-layer-system)
-    - [sbt File Tracking](#sbt-file-tracking)
-  - [Resources](#resources)
-
 Scala sbt is a build tool for Scala written in Scala, but can build Java files as well.
 
 Build definition and source code connected with this documentation:

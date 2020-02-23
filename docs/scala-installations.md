@@ -1,12 +1,4 @@
-# Scala Installations
-
-- [Scala Installations](#scala-installations)
-  - [Windows](#windows)
-    - [Java](#java)
-    - [SBT](#sbt)
-    - [Scala](#scala)
-    - [Ammonite REPL](#ammonite-repl)
-  - [MacOS](#macos)
+# How to install Scala
 
 ## Windows
 
@@ -15,27 +7,44 @@ For Windows Scoop is doing good job as a command-line installer, and can manage 
 ### Java
 
 As a prerequisite we need GIT.
-`scoop install git`
+
+```powershell
+scoop install git
+```
 
 To install Java we need to add bucket first. Scoop provides JDK and JRE through **Scoop Java** bucket.
 
-`scoop bucket add java`
+```powershell
+scoop bucket add java
+```
 
 Then we need to install Java. Scoop supports `Oracle OpenJDK`, `Zulu JDK` and others.
 
 - Oracle OpenJDK
-`scoop install openjdk`
+
+```powershell
+scoop install openjdk
+```
 
 - Zulu JDK
-`scoop install zulu6`
+
+```powershell
+scoop install zulu6
+```
 
 If we have multiple Java installations we can switch between versions with `reset` command. For example:
 
 - Change version to Oracle OpenJDK:
-`scoop reset oraclejdk`
+
+```powershell
+scoop reset oraclejdk
+```
 
 - Change version to Zulu:
-`scoop reset zulu6`
+
+```powershell
+scoop reset zulu6
+```
 
 ### SBT
 
@@ -43,11 +52,15 @@ sbt is a build tool for Scala, Java, and more. It requires Java 1.8 or later.
 
 <https://www.scala-sbt.org/1.x/docs/index.html>
 
-`scoop install sbt`
+```powershell
+scoop install sbt
+```
 
 ### Scala
 
-`scoop install scala`
+```powershell
+scoop install scala
+```
 
 ### Ammonite REPL
 
@@ -55,6 +68,8 @@ Ammonite lets you use the Scala language for scripting purposes: in the REPL, as
 
 <https://ammonite.io/>
 
-`scoop install ammonite`
+```powershell
+scoop install ammonite
+```
 
 ## MacOS
