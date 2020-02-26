@@ -45,7 +45,7 @@ Console / dependencyClasspath
 
 ## Managed dependencies
 
-Managed dependencies are dependencies that sbt automatically downloads, sbt also tracks and matches the managed dependencies versions. `libraryDependencies` is the setting key. 
+Managed dependencies are dependencies that sbt automatically downloads, sbt also tracks and matches the managed dependencies versions. To setup managed dependencies use `libraryDependencies` setting key. 
 
 We can list all project dependencies with `show` command.  
 
@@ -68,13 +68,13 @@ Declaring a dependency looks like this, where groupId, artifactId, and revision 
 libraryDependencies += groupID % artifactID_scalaVersion % revision
 ```
 
-For example we can add `liftweb.utils` managed dependency as:
+For example to add `liftweb.utils` dependency in sbt project file, we use:
 
 ```scala
 libraryDependencies += "net.liftweb" % "lift_util_2.12.3" % "3.1.0"
 ```
 
-Now if we take a look again at the dependencies we will find also `lift_util`:
+Looking again in the dependencies we will find also `lift_util`:
 
 ```scala
 sbt:Animals> show libraryDependencies
@@ -82,11 +82,11 @@ sbt:Animals> show libraryDependencies
 [info] * net.liftweb:lift-util_2.12.3:3.1.0
 ```
 
-However, we are now bound to manually specifying the correct Scala Version in the dependency artifact id. sbt can also take care instead of us to download the correct dependency version.
+However, we are now bound to manually specifying the correct Scala Version in the dependency artifact id. sbt has build in capabilities to track this information instead of us.
 
 ### Getting right version with sbt
 
-If we use `%% artifactId`, sbt will select and download the correct dependency version for us. So we can change the previous managed dependency to:
+Using `%% artifactId`, sbt will select and download the correct dependency version for us. Change the previous managed dependency to:
 
 ```scala
 libraryDependencies += "net.liftweb" %% "lift_util" % "3.1.0"
@@ -106,11 +106,59 @@ sbt:Animals> show libraryDependencies
 ```
 Now sbt manages the proper artifact version for us. Also we can see that `artifact version` is no longer displayed by sbt.
 
+### List of dependencies
+
+Adding second managed dependency can be done in the same way as the first one:
+
+```scala
+libraryDependencies += "net.liftweb" %% "lift-json" % "3.1.0"
+```
+
+If our project works with only couple of dependencies this may work just fine for us. However, for bigger projects with a lot of dependencies this will not be the optimal way. 
+As sbt configuration file is actually compiled to a Scala code, we can add all dependencies as a sequence or list at once.
+
+<!-- tabs:start -->
+
+#### ** Sequence **
+
+```scala
+libraryDependencies ++= Seq(
+    "net.liftweb" %% "lift-util" % "3.1.0",
+    "net.liftweb" %% "lift-json" % "3.1.0"
+)
+```
+
+#### ** List **
+
+```scala
+libraryDependencies ++= List(
+    "net.liftweb" %% "lift-util" % "3.1.0",
+    "net.liftweb" %% "lift-json" % "3.1.0"
+)
+```
+
+<!-- tabs:end -->
+
+### Managing `revision`
+
+In the previous example `revision` key is repeating as a string. We can remove the duplication with creating a value to hold the dependency version. We will also put the whole `libraryDependency` setting key in a scoped block. This way, the version will be available only within the block.
+
+```scala
+{
+    val liftVersion = "3.1.0"
+
+    libraryDependencies ++= Seq(
+        "net.liftweb" %% "lift-util" % liftVersion,
+        "net.liftweb" %% "lift-json" % liftVersion
+    )
+}
+```
+
 ## Resolvers
 
-Resolvers are a set of places where sbt can look for dependencies. 
+Resolvers (repositories) are a set of places where sbt can look for dependencies. 
 
-When executing the `show` command, we can see all configure resolvers. 
+We can use again the `show` command, too see all project configuration resolvers. 
 
 ```scala
 show resolvers
@@ -123,33 +171,21 @@ sbt:Animals> show resolvers
 [info] *
 ```
 
-Adding a repository for a resolver where a library lives.
+To add an additional repository:
 
+```scala
+resolvers += "repository location"
+```
 
+with the special `at` between two strings.
 
-
-
-
+For example we can add Sonatype repository with:
 
 ```scala
 resolvers += "Sonatype Releases Repository" at "https://oss.sonatype.org/content/repositories/Releases" 
 ```
 
-```scala
-sbt:Animals> show libraryDependencies
-[info] * org.scala-lang:scala-library:2.12.3
-[info] * net.liftweb:lift_util_2.12.3:3.1.0
-```
-
-
-
-```scala
-sbt:Animals> show libraryDependencies
-[info] * org.scala-lang:scala-library:2.12.3
-[info] * net.liftweb:lift_util:3.1.0
-```
-
 ## Resources
 
-[sbt Reference Manual - Library Dependencies](https://www.scala-sbt.org/1.x/docs/Library-Dependencies.html)
-[sbt Reference Manual - Classpaths](https://www.scala-sbt.org/1.x/docs/Classpaths.html)
+* [sbt Reference Manual - Library Dependencies](https://www.scala-sbt.org/1.x/docs/Library-Dependencies.html)
+* [sbt Reference Manual - Classpaths](https://www.scala-sbt.org/1.x/docs/Classpaths.html)
