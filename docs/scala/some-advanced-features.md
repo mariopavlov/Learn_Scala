@@ -140,9 +140,113 @@ Joker
 
 The `.` in the example is used to access field or method from the tuple class. In this case, we are accessing the `_1` field. The _N numbers are one-based, because starting with 1 is a tradition in other languages with statically types tuples, such as Haskell and ML.
 
-## Sets and Maps
+## Sets
 
-Because Scala aims to help us take advantage of both **functional** and **imperative** style of programming, its collections libraries make a point in differentiate between **mutable** and **immutable** collections. For example, arrays are always mutable, and lists immutable. Scala also provides mutable and immutable alternatives for maps and sets, but uses the same simple name for both. For sets and maps, Scala models mutability in the class hierarchy.
+Because Scala aims to help us take advantage of both **functional** and **imperative** style of programming, its collections libraries make a point in differentiate between **mutable** and **immutable** collections. For example, *arrays are always mutable*, and *lists immutable*. Scala also provides mutable and immutable alternatives for maps and sets, but uses the same simple name for both. For sets and maps, Scala models mutability in the class hierarchy.
 
-For example, the Scala API contains a base trait for sets. 
+For example, the Scala API contains a `base trait` for sets. Trait is similar to a Java interface. Scala then provides two sub traits, one for **mutable sets** and another for **immutable sets**.
 
+In the end we have 3 scala traits with the same basic `Set` name. They differ only in the package where they resided. We have the following `Set` names:
+
+- `scala.collection.Set`
+- `scala.collection.immutable.Set`
+- `scala.collection.mutable.Set`
+
+Concrete set classes in Scala API, such as the `HashSet` extend either `mutable` or `immutable` variants of the `Set`. In Java we implement `interfaces`, whether in Scala we `extend` or `mix` traits. Here is a default way to create a immutable set:
+
+```scala
+var planeSet = Set("Boeing", "Airbus")
+jetSet += "Lear"
+
+println(jetSet.contains("Boeing"))
+```
+
+So in our example planeSet is mutable variable, which holds immutable set.
+
+```scala
+scala> var planeSet = Set("Boeing", "Airbus")
+planeSet: scala.collection.immutable.Set[String] = Set(Boeing, Airbus)
+```
+
+When we execute the `+=` command, we are actually adding `Lear` to the existing `planeSet` and then the result is new set which holds all values.
+
+```scala
+scala> planeSet
+res1: scala.collection.immutable.Set[String] = Set(Boeing, Airbus, Lear)
+```
+
+So immutable `Sets` actually does not have `+=` method, this method is only offered in mutable `Sets`. However, both immutable and mutable sets does offer the `+` method, which adds element to the existing set. The following example demonstrates exactly that in immutable sets:
+
+```scala
+scala> val planes = Set("Boeing", "Airbus")
+planes: scala.collection.immutable.Set[String] = Set(Boeing, Airbus)
+
+scala> planes += "Cessna"
+              ^
+    error: value += is not a member of scala.collection.immutable.Set[String]
+    Expression does not convert to assignment because receiver is not assignable.
+
+scala> planes
+res6: scala.collection.immutable.Set[String] = Set(Boeing, Airbus)
+```
+
+If we need the mutable variant of `Set` we need to import it from `scala.collection.mutable`. Here is an example:
+
+```scala
+scala> import scala.collection.mutable
+import scala.collection.mutable
+
+scala> val movieSet = mutable.Set("The Matrix")
+movieSet: scala.collection.mutable.Set[String] = HashSet(The Matrix)
+
+scala> movieSet += "The Matrix: Reloaded"
+movieSet.type = HashSet(The Matrix: Reloaded, The Matrix)
+
+scala> movieSet += "The Matrix: Revolutions"
+movieSet.type = HashSet(The Matrix: Reloaded, The Matrix: Revolutions, The Matrix)
+```
+
+## Maps
+
+Another useful collection in Scala is `Map`. As with sets, Scala provides mutable and immutable versions of `Map`.
+
+Here is an example how we can create mutable `Map` in Scala.
+
+```scala
+scala> import scala.collection.mutable
+import scala.collection.mutable
+
+scala> val treasureMap = mutable.Map[Int, String]()
+treasureMap: scala.collection.mutable.Map[Int,String] = HashMap()
+
+scala> treasureMap += (1 -> "Go to Island.")
+treasureMap.type = HashMap(1 -> Go to Island.)
+
+scala> treasureMap += (2 -> "Find big X on the groud.")
+treasureMap.type = HashMap(1 -> Go to Island., 2 -> Find big X on the groud.)
+
+scala> treasureMap += (3 -> "Dig.")
+treasureMap.type = HashMap(1 -> Go to Island., 2 -> Find big X on the groud., 3 -> Dig.)
+
+scala> println(treasureMap(3))
+Dig.
+```
+
+`Map` consists of integer key, and string value. In the factory method during the creation we pass nothing `mutable.Map[Int, String]()`, so we create empty HasMap. On the next lines just as in the case with `Sets` we add new members to the existing `Map`. The Scala compiler transforms the `+= ->` to `(1).->"Our String"`. So we are calling a method name `->` on an integer value, and we are passing a string value. The `->` method in Scala returns a two-element `Tuple` containing `key and value`. And finally we can access any of the map elements with `()` on our `Map` variable, passing inside the parentheses the integer key against we have added the record earlier.
+
+If we want to create immutable map, we don't need to import anything as it is imported by default. Also, in the following example we will create and initialize the set with the factory method:
+
+```scala
+scala> val romanNumeral = Map(
+     | 1 -> "I",
+     | 2 -> "II",
+     | 3 -> "III",
+     | 4 -> "IV",
+     | 5 -> "V",
+     | 6 -> "VI"
+     | )
+romanNumeral: scala.collection.immutable.Map[Int,String] = HashMap(5 -> V, 1 -> I, 6 -> VI, 2 -> II, 3 -> III, 4 -> IV)
+
+scala> romanNumeral(5)
+res5: String = V
+```
