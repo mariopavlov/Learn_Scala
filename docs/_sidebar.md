@@ -17,6 +17,7 @@
 - **Scala**
   - [A Scalable Language](scala/a-scalable-language.md)
   - [First Steps in Scala](scala/first-steps.md)
+  - [Advanced Features](scala/some-advanced-features.md)
 
 - **Links**
 - [![GitHub](https://mariopavlov.github.io/Learn_Scala/img/github-mark/GitHub-Mark-Light-32px.png)GitHub](https://github.com/mariopavlov/Learn_Scala)

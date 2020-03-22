@@ -83,10 +83,10 @@ args.foreach(arg => println(arg))
 
 Here we are calling the `foreach` function on `args`. The `foreach` expects in a function as a parameter, and in our case we pass in `function literal`.
 
-> **Note** `for` loop is also available in Scala. In effort to guide us to a more functional direction, only an imperative `for` is available, called `for expressions`.
-> 
-> Here is an example:
-> ```scala
-> for (arg <- args)
->   println(arg)
-> ```
+`for` loop is also available in Scala. In effort to guide us to a more functional direction, only an imperative `for` is available, called `for expressions`.
+
+Here is an example:
+```scala
+for (arg <- args)
+  println(arg)
+```
